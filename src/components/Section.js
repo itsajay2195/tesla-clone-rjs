@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 
-function Section() {
+function Section(props) {
   return (
     <Wrap>
         <ItemText>
-            <h1>Model S</h1>
-            <p>order online for touchless delivery</p>
+            <h1>{props.title}</h1>
+            <p>{props.description}</p>
         </ItemText>
 
         <Buttons>
