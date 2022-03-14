@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 function Section(props) {
   return (
-    <Wrap>
+    <Wrap bgImage={props.backgroundImg}>
         <ItemText>
             <h1>{props.title}</h1>
             <p>{props.description}</p>
@@ -13,11 +13,11 @@ function Section(props) {
         <Buttons>
             <ButtonGroup>
                 <LeftButton>
-                    Custom Order
+                   { props.leftBtnText }
                 </LeftButton>
                 
                 <RightButton>
-                    Existing Inventory
+                    {props.rightBtnText}
                 </RightButton>
             </ButtonGroup>
 
@@ -41,6 +41,7 @@ const Wrap = styled.div`
     flex-direction:column;
     justify-content: space-between; //vertical
     align-items: center; //horizontal
+    background-image :${props =>`url("/images/${props.bgImage}")`}
   
     
 `
