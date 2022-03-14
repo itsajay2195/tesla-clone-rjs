@@ -22,12 +22,12 @@ function Header() {
         <RightMenu>
             <a href="#">Shop </a>
             <a href="#">Tesla Account</a>
-            <CustomMenu onClick={()=>{setOpen(!open)}}></CustomMenu>
+            <CustomMenu onClick={()=>{setOpen(true)}}></CustomMenu>
         </RightMenu>
 
         <BurgerNav show={open}>
             <CloseWrapper>
-                <CustomClose onClick={()=>{setOpen(!open)}}/>
+                <CustomClose onClick={()=>{setOpen(false)}}/>
             </CloseWrapper>
             
             <li><a href="#">Exisiting Inventory</a></li>
@@ -110,6 +110,7 @@ const BurgerNav = styled.div`
     padding:20px;
     text-align:start;
     transform: ${props=> props.show ? 'translateX(0)' : 'translateX(100%)'};
+    transition: transform 0.3s ease-in-out;
     li{
         padding:15px 0;
         border-bottom: 1px solid rgba(0,0,0,0.2);
