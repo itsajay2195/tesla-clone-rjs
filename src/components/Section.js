@@ -1,31 +1,38 @@
 import React from 'react'
 import styled from 'styled-components'
-
+import Fade from 'react-reveal/Fade';
 
 function Section(props) {
-  return (
-    <Wrap bgImage={props.backgroundImg}>
-        <ItemText>
-            <h1>{props.title}</h1>
-            <p>{props.description}</p>
-        </ItemText>
+    return (
+        <Wrap bgImage={props.backgroundImg}>
+            <Fade bottom>
+                <ItemText>
+                    <h1>{props.title}</h1>
+                    <p>{props.description}</p>
+                </ItemText>
 
-        <Buttons>
-            <ButtonGroup>
-                <LeftButton>
-                   { props.leftBtnText }
-                </LeftButton>
-                
-                <RightButton>
-                    {props.rightBtnText}
-                </RightButton>
-            </ButtonGroup>
+            </Fade>
 
-             <DownArrow src="images/down-arrow.svg"></DownArrow>
-        </Buttons>
-  
-    </Wrap>
-  )
+            <Buttons>
+                <Fade bottom>
+                    <ButtonGroup>
+                        <LeftButton>
+                            {props.leftBtnText}
+                        </LeftButton>
+
+                        {props.rightBtnText &&
+                            <RightButton>
+                                {props.rightBtnText}
+                            </RightButton>}
+                    </ButtonGroup>
+                </Fade>
+              
+
+                <DownArrow src="images/down-arrow.svg"></DownArrow>
+            </Buttons>
+
+        </Wrap>
+    )
 }
 
 export default Section
@@ -41,7 +48,7 @@ const Wrap = styled.div`
     flex-direction:column;
     justify-content: space-between; //vertical
     align-items: center; //horizontal
-    background-image :${props =>`url("/images/${props.bgImage}")`}
+    background-image :${props => `url("/images/${props.bgImage}")`}
   
     
 `
@@ -84,7 +91,7 @@ const DownArrow = styled.img`
    animation: animateDown 1s infinite;
    overflow-x:hidden ;
    `
-   const Buttons = styled.div` 
+const Buttons = styled.div` 
     
    `
 //vw full viEw width
