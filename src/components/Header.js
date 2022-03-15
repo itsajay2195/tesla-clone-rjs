@@ -7,6 +7,9 @@ import {useSelector} from 'react-redux'
 
 function Header() {
   const [open, setOpen] = useState(false)
+  const cars = useSelector(selectCars)
+
+
   return (
     <Container>
         <a>
@@ -14,10 +17,7 @@ function Header() {
         </a>
         
         <Menu>
-            <a href="#">Model S</a>
-            <a href="#">Model 3</a>
-            <a href="#">Model X</a>
-            <a href="#">Model Y</a>
+            {cars && cars.map((car,index)=>  <a  key={index} href="#">{car}</a>)}
         </Menu>
 
         <RightMenu>
@@ -30,15 +30,7 @@ function Header() {
             <CloseWrapper>
                 <CustomClose onClick={()=>{setOpen(false)}}/>
             </CloseWrapper>
-            
-            <li><a href="#">Exisiting Inventory</a></li>
-            <li><a href="#">Used Inventory</a></li>
-            <li><a href="#">Trade-in</a></li>
-            <li><a href="#">CyberTruck</a></li>
-            <li><a href="#">Exisiting Inventory</a></li>
-            <li><a href="#">Exisiting Inventory</a></li>
-            <li><a href="#">Exisiting Inventory</a></li>
-            <li><a href="#">Exisiting Inventory</a></li>
+            {cars && cars.map((car,index)=> <li key={index}><a href="#">{car}</a></li>  )}
 
         </BurgerNav>
 
